@@ -1,0 +1,57 @@
+$ball-size: 20px;
+
+.box {
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+  position: relative;
+  background-color: #FFF;
+  cursor: pointer;
+  .ball {
+    width: $ball-size;
+    height: $ball-size;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    transition:all 1s linear;
+
+  }
+}
+
+//coordinates for the ball wrapped in classes
+.ballToTopLeft {
+  left: 0;
+  top: 0;
+}
+
+.ballToTopRight {
+  top: 0;
+  left: calc(100% - #{$ball-size});
+}
+.ballToBottomRight {
+  top: calc(100% - #{$ball-size});
+  left: calc(100% - #{$ball-size});
+}
+.ballToBottomLeft {
+  top: calc(100% - #{$ball-size});
+  left: 0;
+}
+
+#loading {
+  display: block;
+  text-align: center;
+  height: 100%;
+  .loader-content {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+}
+
+.about-author {
+  position: absolute;
+  left: -200px;
+
+}

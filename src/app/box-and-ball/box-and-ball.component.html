@@ -1,0 +1,32 @@
+<p>
+  ball-and-container works!
+</p>
+
+<!-- 
+<p>{{response?.new_color}}</p> -->
+<p>{{ballColorFromApi}}</p>
+<p>{{ballColorHex}}</p>
+
+
+<div class="box" (click)='boxOnClick()'>
+  <div class="ball ballToTopLeft" [ngStyle]="{backgroundColor: ballColorHex}"></div>
+<!-- loader -->
+  <div class="" id="loading" style="display: none;">
+    <div class="loader-content">
+      <img src="/assets/img/loader.gif" alt="loader" width="50" >
+      <p>Retrieving data...</p>
+    </div>
+
+  </div>
+</div>
+
+<button *ngIf="showAboutAuthorButton" (click)="showInfoAboutAuthor()">Who prepared this?</button>
+
+
+<div class="about-author" *ngIf="showAboutAuthorButton">
+  <h2>Thanks for testing this thing</h2>
+  <p>Hi, I am Radek bla blahg</p>
+  <!-- info linked in i moze github -->
+</div>
+
+
