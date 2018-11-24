@@ -1,0 +1,7 @@
+
+<div class="btn-container" *ngIf="showAbout">
+  <button class="btn-cta" (click)="toggleAuthorPanel()">{{buttonText}}</button>
+</div>
+ 
+
+<div class="about-author" *ngIf="showAbout" [ngClass]="{'panel-visible': showInfoPanel === true}"></div>

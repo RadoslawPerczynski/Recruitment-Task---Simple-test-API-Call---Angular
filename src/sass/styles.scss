@@ -1,2 +1,129 @@
 @import './variables';
 
+body {
+  overflow: hidden;
+  font-family: Georgia, Times, serif;
+}
+.welcome-header {
+  text-align: center;
+}
+
+.box {
+  //centering
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  width: $box-width;
+  height: $box-height;
+  border: 1px solid $black;
+  border-radius: $box-border-radius;
+  cursor: pointer;
+
+}
+
+.ball {
+  width: $ball-size;
+  height: $ball-size;
+  border-radius: $ball-border-radius;
+  transition: $transition-fast;
+  position: absolute;
+  background: $black; //initially
+
+  //ball's moves depending on the particular class
+  &.ballToTopLeft {
+    left: 0;
+    top: 0;
+  }
+  &.ballToTopRight {
+    top: 0;
+    left: calc(100% - #{$ball-size});
+  }
+  &.ballToBottomRight {
+    top: calc(100% - #{$ball-size});
+    left: calc(100% - #{$ball-size});
+  }
+  &.ballToBottomLeft {
+    top: calc(100% - #{$ball-size});
+    left: 0;
+  }
+
+}
+//loader
+#loading {
+  display: none;
+  text-align: center;
+  height: 100%;
+  .loader-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  //loader visible depending on the class passed to body
+  .loader-visible & {
+    display: block
+  }
+
+}
+
+//about author component
+.about-author {
+  position: absolute;
+  transition: $transition-fast;
+  width: 300px;
+  top: 0;
+  max-height: 80%;
+  right: -500px;
+  padding: 20px;
+  padding-right: 50px;
+  border-radius: 20px;
+  border: 1px solid black;
+  box-shadow: -5px 5px 5px grey;
+  background: white;
+
+  &.panel-visible {
+    right: -20px;
+  }
+  img {
+    float: right;
+    width: 100px;
+    border-radius: 10px;
+  }
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 0%;
+  right: 0;
+  text-align: center;
+  transition: .5s;
+  &.animate-btn {
+    background: red;
+  }
+}
+
+
+.btn-cta {
+    padding: 20px;
+    border-radius: 10px;
+    outline: 0;
+    background: white;
+    font-size: 24px;
+    border: 1px solid black;
+    transition: $transition-fast;
+    font-family: inherit;
+    cursor: pointer;
+    width: 280px; //300 - 2-\0 from panel
+  
+    &:hover {
+      background: grey;
+    }
+ 
+    
+}
+
+

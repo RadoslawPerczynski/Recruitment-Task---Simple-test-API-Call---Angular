@@ -7,122 +7,86 @@ import {HttpClient } from '@angular/common/http';
   styleUrls: ['./box-and-ball.component.scss']
 })
 export class BoxAndBallComponent implements OnInit {
-  response: any;
-  ballColorFromApi: any;
+  apiEndpoint: string = 'http://www.colr.org/json/color/random';
+  apiResponse: any;
+  ballColorFromApi: string;
   ballColorHex: string
-  showAboutAuthorButton: boolean;
-  showAboutAuthorInfo: boolean;
-  countMoves: number = 0;
-  
+  ballColorDefault: string = '000';
+  showLayout: boolean;
+  movesCounter: number = 0;
+  showAboutAuthor: boolean;
+
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.displayLoader('show');
+    await this.getSetColor();
+    this.showLayout = true;
+    this.displayLoader('hide');
   }
   
-
-  // firstFunction(() => console.log('huzzah, I\'m done!'));
-
-
-  boxOnClick() {
-
-    this.getSetColorFromApi()
-    this.displayLoader('shoW');
-
-    if(this.countMoves === 1) {
-      this.showAboutAuthorButton = true;
-      this.showAboutAuthorInfo = true;
-    }
+  async boxOnClick() {
+    this.displayLoader('show');
+    await this.getSetColor();
+    this.displayLoader('hide');
+    this.moveTheBall();
   }
 
-
-
-
-  async getSetColorFromApi() {
-
-    let myCall = this.http.get('http://www.colr.org/json/color/random');
-    myCall.subscribe((response) => {
-      this.response = response;
-      this.ballColorFromApi = this.response.new_color;
-      this.ballColorHex = this.getSetColorHex(this.ballColorFromApi);
-      this.moveTheBall();
-      this.displayLoader('hide');
-      this.countMoves += 1;
-    });
+  async getSetColor() {
+    this.apiResponse = await this.http.get(this.apiEndpoint).toPromise();
+    this.ballColorFromApi = this.apiResponse.new_color;
+    this.ballColorHex = this.convertColorFromApiToHex(this.ballColorFromApi);
   }
 
-  getSetColorHex(colorString = '000') {
-
-    if(this.ballColorFromApi === undefined) {
-      throw "Impossible to retrieve the color from API. Color is undefined.";
+  convertColorFromApiToHex(colorString) {
+    //api sometimes generates an empty string instead of a new color and to prevent the ball for being invisible
+    if(colorString === "" || colorString === "fffff" || this.ballColorFromApi === "fff") {
+      return this.ballColorDefault;
     }
-    
-    if(this.ballColorFromApi === "" ) {
-      return '#000';
-    }
-
-    if(this.ballColorFromApi === "fffff" || this.ballColorFromApi === "fff") {
-      return '#000';
-    }
-
     return `#${colorString}`;
-
-  }
-
-  displayLoader(display: string) {
-    const loader = document.getElementById('loading');
-
-    if(display.toLowerCase() === "show") {
-      loader.style.display = 'block';
-
-    }
-    if(display.toLowerCase() === "hide") {
-      loader.style.display = 'none';
-
-    }
   }
 
   moveTheBall() {
-    // await this.getSetColorFromApi();
-
     let ballClassList = document.querySelector('.ball').classList;
 
-    console.log(ballClassList);
     switch( true ){
       case ballClassList.contains('ballToTopLeft'):
-        ballClassList.remove('ballToTopLeft');
         ballClassList.add('ballToTopRight');
+        ballClassList.remove('ballToTopLeft');
         break;
       case ballClassList.contains('ballToTopRight'):
-        ballClassList.remove('ballToTopRight');
         ballClassList.add('ballToBottomRight');
+        ballClassList.remove('ballToTopRight');
         break;
       case ballClassList.contains('ballToBottomRight'):
-        ballClassList.remove('ballToBottomRight');
         ballClassList.add('ballToBottomLeft');
+        ballClassList.remove('ballToBottomRight');
         break;
       case ballClassList.contains('ballToBottomLeft'):
-        ballClassList.remove('ballToBottomLeft');
         ballClassList.add('ballToTopLeft');
+        ballClassList.remove('ballToBottomLeft');
         break;         
     }
-
-
+    this.updateMovesCounter();
   }
-  showInfoAboutAuthor() {
-    const authorInfo = <HTMLElement>document.querySelector('.about-author');
 
-    this.showAboutAuthorInfo = !this.showAboutAuthorInfo;
-
-    if(!this.showAboutAuthorInfo) {
-      authorInfo.style.left = '0';
-      //showclassvisible
-    }
-    else {
-      authorInfo.style.left = '-200px';
-    }
-
+  displayLoader(display: string) {
+    const body = <HTMLElement>document.querySelector('body');
     
+    if(display.toLowerCase() === "show") {
+      body.classList.contains('loader-visible') ? "" : body.classList.add('loader-visible');
+    }
+    if(display.toLowerCase() === "hide") {
+      body.classList.contains('loader-visible') ? body.classList.remove('loader-visible') : "";
+    }
   }
 
+  updateMovesCounter() {
+    this.movesCounter += 1;
+
+    if(this.movesCounter === 1) {
+      return this.showAboutAuthor = true;
+    } 
+  }
 
 }
