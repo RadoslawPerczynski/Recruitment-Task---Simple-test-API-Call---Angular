@@ -7,7 +7,8 @@ import {HttpClient } from '@angular/common/http';
   styleUrls: ['./box-and-ball.component.scss']
 })
 export class BoxAndBallComponent implements OnInit {
-  apiEndpoint: string = 'http://www.colr.org/json/color/random';
+  corsAnywherePrefix: string = 'https://cors-anywhere.herokuapp.com/'; //in order to allow calling http from https sites (GH Pages);
+  apiEndpoint: string = this.corsAnywherePrefix + 'https://cors-anywhere.herokuapp.com/http://www.colr.org/json/color/random';
   apiResponse: any;
   ballColorFromApi: string;
   ballColorHex: string
