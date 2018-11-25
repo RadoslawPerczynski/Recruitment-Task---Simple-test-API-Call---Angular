@@ -2,8 +2,9 @@
 
 ![image](https://user-images.githubusercontent.com/28759821/48978779-5e7e1900-f0b1-11e8-8c87-e04f99e8ff81.png)
 
-<p>This is the box. And that is a ball. End of story? Not really. The color of the ball is being changed dynamically depending on the remote server response. When you click on the box the ball changes it's color and moving to opposite rorner. </br>
-<b>HINT:<b> process at least 3 moves :) </p>
+<p>This is the box. And that is a ball. End of story? Not really :) </br>
+The color of the ball is being changed dynamically depending on the remote server response. When you click on the box the ball changes it's color and moving to opposite rorner. </br>
+<b>HINT:</b> process at least 3 moves :)</p>
 <ul>
   <li>Click here to use the <a href="https://radoslawperczynski.github.io/Recruitment-Task---Simple-test-API-Call---Angular/" target="_blank"> Live Demo </a></li>
 </ul>
@@ -59,7 +60,29 @@
   <li>Sass</li>
 </ul>
 
+<h2>How it works:</h2>
+<ul>
+  <li>xxxxx</li>
+</ul>
 
+<h2>Some insights from me:</h2>
+<ul>
+  <li>Sass files have been moved to another folder (as a best practice and personal preference). I believe it allows us to create a more robust Sass foundation.</li>
+  <li>API sometimes returns an empty string as a new color. I am not sure if it's a mistake or a trap. In this case I set the color to default color (black). Another solution would be:
+    <ul>
+      <li>to fix the API</li>
+      <li>create a function which returns a random color instead but then we lose the scope of using API ;) </li>
+    </ul>
+  </li>
+
+   <li>Sometimes the color of the ball is very bright and it's difficult to see the ball on the white background. I prevented the ball to become complitely white (it gets default black color instead) but it doesn't solve the problem fully. However solving this issue is not the main scope of the task and it's a minor thing.</li>
+       
+   <li>I haven't used any css frameworks there. In my opinion there is no need.</li>
+   <li>Sometimes I repeat the names of the classes or I use particular strings more than once. In this case in bigger real app probably we would assign these strings to variables/dictionaries in order to reuse them across the app. I didn't want to blow up the code too much in order to make just 2 components.</li>
+   <li>Task contains an additional component which is a panel with a few words from me and few informations.</li>
+  <li>Task description specified that the container has to be 400x200 centered on the page. I assumed it's about pixels not the ratio. For this reason it doesn't fit to smaller mobiles phones. I could keep the ratio for devices below 400px width but I assumed that it wasn't the main scope of this task. For the same reason I didn't make my 'about-author' component perfectly responsed too.</li>
+
+</ul>
 
 
 <hr>
