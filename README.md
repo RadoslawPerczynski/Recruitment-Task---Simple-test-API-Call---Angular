@@ -69,9 +69,8 @@ The color of the ball is being changed dynamically depending on the remote serve
       <li>It's calling the WEB API which returns couple of things. We take just "new color" which is a string without '#'.</li>
       <li>We pass this string to another function that return a complete HEX color for us and we set this color to the ball.</li>
       <li>In the meantime the loader is being shown to the user in the UI. Once we get the responce and set the color the loader is hidden</li>
-    <ul>
+    </ul>
       </li>
-      
       <li>If all the steps above are complited we move the ball:
         <ul>
           <li>moves of the ball depends on the classes that we pass to the ball html element</li>
