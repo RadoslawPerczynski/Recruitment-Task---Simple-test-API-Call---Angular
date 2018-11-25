@@ -60,10 +60,29 @@ The color of the ball is being changed dynamically depending on the remote serve
   <li>Sass</li>
 </ul>
 
-<h2>How it works:</h2>
-<ul>
-  <li>xxxxx</li>
-</ul>
+<h2>How it works (flow):</h2>
+<ol>
+  <li>Initially, the app won't show the layout untill it will get the response from the server and set the color for a ball</li>
+  <li>Once it gets the response, layout is visible. The box is always centered and the viewport</li>
+   <li>On click:
+    <ul>
+      <li>It's calling the WEB API which returns couple of things. We take just "new color" which is a string without '#'.</li>
+      <li>We pass this string to another function that return a complete HEX color for us and we set this color to the ball.</li>
+      <li>In the meantime the loader is being shown to the user in the UI. Once we get the responce and set the color the loader is hidden</li>
+    <ul>
+      </li>
+      
+      <li>If all the steps above are complited we move the ball:
+        <ul>
+          <li>moves of the ball depends on the classes that we pass to the ball html element</li>
+          <li>we check what is the current class of the ball, we remove this class and we set another class depending on which was the previous one</li>
+          <li>These classes are styled in the .scss file accordingly.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  
+</ol>
 
 <h2>Some insights from me:</h2>
 <ul>
