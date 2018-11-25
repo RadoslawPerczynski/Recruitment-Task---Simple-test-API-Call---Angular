@@ -1,6 +1,8 @@
 <h1>Box & Ball - recruitment task</h1>
 
-![image](https://user-images.githubusercontent.com/28759821/48978779-5e7e1900-f0b1-11e8-8c87-e04f99e8ff81.png)
+<a href="" target="_blank">
+  <img src="https://user-images.githubusercontent.com/28759821/48978779-5e7e1900-f0b1-11e8-8c87-e04f99e8ff81.png" />
+</a>
 
 <p>This is the box. And that is a ball. End of story? Not really :) </br>
 The color of the ball is being changed dynamically depending on the remote server response. When you click on the box the ball changes it's color and moving to opposite rorner. </br>
