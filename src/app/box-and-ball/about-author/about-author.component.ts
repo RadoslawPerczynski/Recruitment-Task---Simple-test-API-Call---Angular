@@ -24,9 +24,8 @@ export class AboutAuthorComponent implements OnInit {
       <p>This has been done with Angular v.7. Although I am a beginner with this framework I am highly motivated to grow! </p>
       <p>My name is Radoslaw Perczynski. Friends call me "Radek" and feel free to call me as they do :) Currently I am working as a Junior Frontend Dev.</p>
       <ul>
-        <li>Here is my <a href="https://www.linkedin.com/in/radoslaw-perczynski" target="_blank">LinkedIn</a>. :)</li>
-        <li>Don't hesitate to drop me a line: <a href="mailto:perczynski.radoslaw@gmail.com" target="_blank">perczynski.radoslaw@gmail.com</a>.</li>
-        <li>If you are checking this code locally, here is the <a href="https://radoslawperczynski.github.io/Recruitment-Task---Simple-test-API-Call---Angular/" target="_blank">online version</a> on GitHub Pages.</li>
+        <li>Here is my <a href="https://www.linkedin.com/in/radoslaw-perczynski" target="_blank">LinkedIn</a> :)</li>
+        <li>Don't hesitate to drop me a line: <a href="mailto:perczynski.radoslaw@gmail.com" target="_blank">perczynski.radoslaw@gmail.com</a></li>
       </ul>
       <p>Well, I hope you like it. I would welcome the chance to speak with you sometime! :)<br>
       Radek</p>

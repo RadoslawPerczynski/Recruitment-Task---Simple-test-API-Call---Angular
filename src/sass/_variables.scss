@@ -6,9 +6,11 @@ $white: #fff;
 $grey: #ccc;
 $box-shadow-settings: -5px 5px 5px $grey;
 
+//border
 $border-radius-small: 10px;
 $border-radius-medium: 20px;
 $border-radius-large: 30px;
+$single-line-border: 1px solid $black;
 
 //spacing
 $padding-xl: 20px;
@@ -16,8 +18,8 @@ $padding-xl: 20px;
 //font-size
 $font-size-medium: 1rem;
 $font-size-large: 1.5rem;
+
 $transition-fast: .5s;
-$single-line-border: 1px solid $black;
 
 //box annd ball
 $box-width: 400px;
@@ -27,12 +29,14 @@ $ball-border-radius: 50%;
 $box-border-radius: $border-radius-large;
 
 //author
-$author-panel-width: 300px;
-$author-panel-initial-position-right: -500px;
+$author-panel-width: 400px;
 $author-panel-max-height: 80%;
 $author-panel-padding: $padding-xl;
 $author-panel-border-radius: $border-radius-medium 0 0 $border-radius-medium;
 $author-photo-width: 100px;
+
+$author-panel-width-mobile-portrait: 100vmin;
+$author-panel-width-mobile-landscape: 100vmax;
 
 //btn
 $btn-padding: $padding-xl;

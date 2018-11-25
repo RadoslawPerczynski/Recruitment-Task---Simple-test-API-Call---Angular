@@ -1,16 +1,20 @@
 @import './variables';
-
+* {
+  box-sizing: border-box;
+}
 body {
   overflow: hidden;
   font-family: Georgia, Times, serif;
 }
 h1 {
   font-size: $font-size-large;
+  @media only screen and (max-width: 768px) {
+    font-size: $font-size-large*0.8;
+  }
 }
-p, small {
+p, ul {
   font-size: $font-size-medium;
-
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 768px) {
     font-size: $font-size-medium*0.8;
   }
 }
@@ -32,7 +36,10 @@ p, small {
   border: $single-line-border;
   border-radius: $box-border-radius;
   cursor: pointer;
-
+  @media only screen and (max-width: 768px) {
+    width: auto;
+    max-width: $box-width;
+  }
 }
 
 .ball {
@@ -86,15 +93,26 @@ p, small {
   transition: $transition-fast;
   width: $author-panel-width;
   max-height: $author-panel-max-height;
-  right: $author-panel-initial-position-right;
+  right: 0;
+  transform: translateX(110%);
   padding: $author-panel-padding;
   border-radius: $author-panel-border-radius;
   border: $single-line-border;
   box-shadow: $box-shadow-settings;
   background: $white;
 
+  @media only screen and (max-width: 768px) and (orientation: portrait) {
+    width: $author-panel-width-mobile-portrait;
+  }
+  @media only screen and (max-width: 850px) and(orientation: landscape) {
+    width: $author-panel-width-mobile-landscape;
+  }
+
+
   &.panel-visible {
-    right: 0;
+    //right: 0;
+    transform: translateX(0);
+
   }
   img {
     float: right;
@@ -109,6 +127,9 @@ p, small {
   right: 0;
   text-align: center;
   transition: $transition-fast;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .btn-cta {
@@ -122,6 +143,11 @@ p, small {
     cursor: pointer;
     width: $btn-width;
     outline: none;
+    @media only screen and (max-width: 768px) {
+      font-size: inherit;
+      padding: $btn-padding/2;
+      width: 50%;
+    }
   
     &:hover {
       background: $grey;
