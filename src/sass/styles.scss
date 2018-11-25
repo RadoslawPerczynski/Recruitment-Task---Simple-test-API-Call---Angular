@@ -4,6 +4,16 @@ body {
   overflow: hidden;
   font-family: Georgia, Times, serif;
 }
+h1 {
+  font-size: $font-size-large;
+}
+p, small {
+  font-size: $font-size-medium;
+
+  @media only screen and (max-width: 500px) {
+    font-size: $font-size-medium*0.8;
+  }
+}
 .welcome-header {
   text-align: center;
 }
@@ -19,7 +29,7 @@ body {
 
   width: $box-width;
   height: $box-height;
-  border: 1px solid $black;
+  border: $single-line-border;
   border-radius: $box-border-radius;
   cursor: pointer;
 
@@ -67,63 +77,55 @@ body {
   .loader-visible & {
     display: block
   }
-
 }
 
 //about author component
-.about-author {
+.about-author-panel {
   position: absolute;
-  transition: $transition-fast;
-  width: 300px;
   top: 0;
-  max-height: 80%;
-  right: -500px;
-  padding: 20px;
-  padding-right: 50px;
-  border-radius: 20px;
-  border: 1px solid black;
-  box-shadow: -5px 5px 5px grey;
-  background: white;
+  transition: $transition-fast;
+  width: $author-panel-width;
+  max-height: $author-panel-max-height;
+  right: $author-panel-initial-position-right;
+  padding: $author-panel-padding;
+  border-radius: $author-panel-border-radius;
+  border: $single-line-border;
+  box-shadow: $box-shadow-settings;
+  background: $white;
 
   &.panel-visible {
-    right: -20px;
+    right: 0;
   }
   img {
     float: right;
-    width: 100px;
-    border-radius: 10px;
+    width: $author-photo-width;
+    border-radius: $box-border-radius;
   }
 }
 
 .btn-container {
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
   right: 0;
   text-align: center;
-  transition: .5s;
-  &.animate-btn {
-    background: red;
-  }
+  transition: $transition-fast;
 }
 
-
 .btn-cta {
-    padding: 20px;
-    border-radius: 10px;
-    outline: 0;
-    background: white;
-    font-size: 24px;
-    border: 1px solid black;
+    padding: $btn-padding;
+    border-radius: $border-radius-small;
+    background: $white;
+    font-size: $font-size-large;
+    border: $single-line-border;
     transition: $transition-fast;
     font-family: inherit;
     cursor: pointer;
-    width: 280px; //300 - 2-\0 from panel
+    width: $btn-width;
+    outline: none;
   
     &:hover {
-      background: grey;
+      background: $grey;
     }
- 
-    
 }
 
 

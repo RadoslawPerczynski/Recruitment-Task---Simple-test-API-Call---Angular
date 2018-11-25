@@ -84,7 +84,7 @@ export class BoxAndBallComponent implements OnInit {
   updateMovesCounter() {
     this.movesCounter += 1;
 
-    if(this.movesCounter === 1) {
+    if(this.movesCounter === 3) {
       return this.showAboutAuthor = true;
     } 
   }
